@@ -1,13 +1,17 @@
-import { MongoClient } from 'mongodb';
+import pg from 'pg';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const MONGO_URI = process.env.MONGO_URI
 
-const mongoClient = new MongoClient(MONGO_URI);
+const { Pool } = pg;
 
-await mongoClient.connect();
+const databaseConfig = {
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+}
 
-const db = mongoClient.db("dbmywallet");
+const connection = new Pool(databaseConfig);
 
-export default db;
+export default connection;

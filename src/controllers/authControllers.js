@@ -14,7 +14,7 @@ export async function signUp(req, res){
     const passwordHash = bcrypt.hashSync(password, 10);
     try {
         await db.query(`INSERT INTO users (name, email, password) VALUES ($1, $2, $3)`, [name, email, passwordHash])
-        res.status(200).send("User created");
+        res.sendStatus(201);
     } catch (error) {
         console.log(error)
         res.sendStatus(422);

@@ -1,9 +1,9 @@
-import register from './registerSchema.js';
-import login from './loginSchema.js'
+import registerSchema from './registerSchema.js';
+import loginSchema from './loginSchema.js';
 
 const allschemas = {
-    register, 
-    login
+    register: registerSchema, 
+    login: loginSchema
 }
 
 export default allschemas;

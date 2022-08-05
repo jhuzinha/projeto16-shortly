@@ -2,6 +2,8 @@ import Joi from "joi";
 import allschemas from "../schemas/allSchemas.js";
 
 export default function Validate(validator) {
+    console.log(allschemas.validator)
+    console.log(allschemas)
     if(!allschemas.hasOwnProperty(validator)){
         return res.sendStatus(422)
     }

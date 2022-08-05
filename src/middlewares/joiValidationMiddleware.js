@@ -1,5 +1,5 @@
 import Joi from "joi";
-import allschemas from "../schemas/allSchemas";
+import allschemas from "../schemas/allSchemas.js";
 
 export default function Validate(validator) {
     if(!allschemas.hasOwnProperty(validator)){

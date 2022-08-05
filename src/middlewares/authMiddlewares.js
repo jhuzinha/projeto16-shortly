@@ -1,6 +1,5 @@
-import db from '../db.js';
-import allschemas from '../schemas/allSchemas.js';
+import db from "../db.js";
 
-export async function validateBody(req, res, next){
-
+export default function verifyUser(req, res, next){
+    
 }

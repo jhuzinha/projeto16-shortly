@@ -1,12 +1,9 @@
-import db from "../db.js";
-import bcrypt from 'bcrypt';
-import jwt from "jsonwebtoken";
-
+import userRepository from '../repository/userRepository.js';
 
 export async function verifyUser(req, res, next){
-    const { email } = req.body
+    const { email } = req.body;
     try {
-        const existinUser = await db.query(`SELECT * FROM users WHERE email = $1`, [email])
+        const existinUser = await userRepository.verifyUser(email);
         if (existinUser.rowCount === 1) {
             return res.sendStatus(409)
         }
@@ -18,9 +15,9 @@ export async function verifyUser(req, res, next){
 }
 
 export async function existingUser(req, res, next){
-    const { email } = req.body
+    const { email } = req.body;
     try {
-        const existinUser = await db.query(`SELECT * FROM users WHERE email = $1`, [email])
+        const existinUser = await userRepository.verifyUser(email);
         if (existinUser.rowCount === 0) {
             return res.sendStatus(401)
         }

@@ -42,3 +42,13 @@ export async function openShortUrl(req, res) {
         res.sendStatus(500)
     }
 }
+
+export async function deleteUrl(req, res){
+    const { id } = req.params;
+    try {
+        await urlRepository.deleteUrl(id);
+        res.sendStatus(204)
+    }catch(err) {
+        res.sendStatus(500)
+    }
+}

@@ -20,12 +20,22 @@ async function updateVisitCount(shortUrl){
     return await db.query(`UPDATE links SET "visitCount" = "visitCount" + 1 WHERE "shortUrl" = $1`, [shortUrl])
 }
 
+async function searchIdAndOwner(id, urlId) {
+    return await db.query(`SELECT * FROM links WHERE "ownerId" = $1 and id = $2`, [id, urlId])
+}
+
+async function deleteUrl(id) {
+    return await db.query(`DELETE FROM links WHERE id = $1`, [id])
+}
+
 const urlRepository = {
     postUrlDB,
     searchUrlbyIdUser,
     searchIdUrl,
     searchShortUrl,
-    updateVisitCount
+    updateVisitCount,
+    searchIdAndOwner,
+    deleteUrl
 }
 
 export default urlRepository;

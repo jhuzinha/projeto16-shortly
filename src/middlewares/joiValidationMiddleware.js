@@ -8,7 +8,7 @@ export default function Validate(schema) {
         try {
             const validated = await allschemas[schema].validate(req.body, { abortEarly: false })
             if (validated.error) {
-                return res.status(422).send(validated.error);
+                return res.status(422).send(validated.error.message);
             }
             next();
         } catch (err) {

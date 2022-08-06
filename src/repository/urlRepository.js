@@ -4,9 +4,28 @@ async function postUrlDB(id, url, shortUrl){
     return await db.query(`INSERT INTO links ("ownerId", url, "shortUrl") VALUES ($1, $2, $3)`, [id, url, shortUrl])
 }
 
+async function searchUrlbyIdUser(id, url){
+    return await db.query(`SELECT * FROM links WHERE "ownerId" = $1 AND url = $2`, [id, url])
+}
+
+async function searchIdUrl(id){
+    return await db.query(`SELECT id, "shortUrl", url FROM links WHERE id = $1`, [id])
+}
+
+async function searchShortUrl(shortUrl) {
+    return await db.query(`SELECT url FROM links WHERE "shortUrl" = $1`, [shortUrl])
+}
+
+async function updateVisitCount(shortUrl){
+    return await db.query(`UPDATE links SET "visitCount" = "visitCount" + 1 WHERE "shortUrl" = $1`, [shortUrl])
+}
 
 const urlRepository = {
-    postUrlDB
+    postUrlDB,
+    searchUrlbyIdUser,
+    searchIdUrl,
+    searchShortUrl,
+    updateVisitCount
 }
 
 export default urlRepository;

@@ -25,7 +25,7 @@ async function rank() {
     LEFT JOIN links l
     ON l."ownerId" = users.id
     GROUP BY users.id
-	ORDER BY "visitCount" DESC, "linksCount" DESC`)
+	ORDER BY "visitCount" DESC, "linksCount" DESC LIMIT 10`)
 }
 
 

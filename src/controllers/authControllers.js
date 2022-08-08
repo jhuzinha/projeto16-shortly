@@ -12,7 +12,7 @@ export async function signIn(req, res){
         const token = jwt.sign({ id: databaseId }, process.env.SECRET_TOKEN, { expiresIn: '1h' });
         return res.send(token).status(200);
     } else {
-        res.status(400).send("Invalid email or password");
+        res.status(401).send("Invalid email or password");
     }
 }
 

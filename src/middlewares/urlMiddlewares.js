@@ -19,9 +19,8 @@ export async function verifyUrl(req, res, next){
     const idUser = res.locals.id;
     try {
         const verifyUrlWithId = await urlRepository.searchIdAndOwner(idUser, id)
-        console.log(verifyUrlWithId)
         if (verifyUrlWithId.rowCount === 0){
-            return res.sendStatus(401)
+            return res.sendStatus(404)
         }
         next();
     } catch(err) {

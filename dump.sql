@@ -123,8 +123,6 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 --
 
 COPY public.links (id, url, "shortUrl", "visitCount", "createdAt", "ownerId") FROM stdin;
-16	https://sasdasdeila.com	lDUADPV	0	2022-08-07 22:33:50.533761	43
-17	https://aaaaaaa.com\n	asdasfs	0	2022-08-07 22:33:44.761869	45
 \.
 
 
@@ -133,17 +131,6 @@ COPY public.links (id, url, "shortUrl", "visitCount", "createdAt", "ownerId") FR
 --
 
 COPY public.users (id, name, email, password, "createdAt") FROM stdin;
-42	jhuzinha	jhuzinha@gmaill.com	$2b$10$v4KB7Vrb5cCCT.jfR3YzQOYPE1J6DRfULO0adJ2umidO2sd7Q91Q.	2022-08-05 23:36:10.759808
-43	jhuzinha	jhuzinha1@gmail.com	$2b$10$lQPu4xx98Xw62acxznZty.baSPJKEPxAgKRUTZzoK00VRECyBsM6e	2022-08-06 00:11:16.88339
-45	jhuzinha	jhuzinhsdssa@gmail.com	$2b$10$V82wjpSIMvFVzPgZiI7z6eEoim6bkzFBU5NqDSRRmVe9Lxx61mD4G	2022-08-06 00:53:30.718078
-46	jhuzinha	jhuzinha@gmail.com	$2b$10$V2CmE4g8YXL6ZWRhJWTRxOVZqBhuIRoGKWXehbYzK3Wcska8euIaS	2022-08-06 00:53:37.423793
-47	jhuzinha	jhuzinhaaaaaaaaaa@gmail.com	$2b$10$iazYpZQ1rF5fdyA491r/2ewFrk09bZpxYH1EqklyyUHb2z0K2d2ua	2022-08-07 23:34:01.349767
-48	jhuzinha	jhuzinhaaaaaaaaaasdadasda@gmail.com	$2b$10$XFp4U15Tdyz93VTUya9UWO3qmBkUlDe829CnTTxrCSPf0/AcKYYru	2022-08-07 23:34:21.809387
-49	jhuzinha	jhuzaaaaaaaasdadasda@gmail.com	$2b$10$n65jScII8tVP0z37S56CzOArj8ztEqpJjI25yCUPL8BbfppIjUf46	2022-08-07 23:34:24.267961
-50	jhuzinha	jhuzaaaaa@gmail.com	$2b$10$FlPU9ciM1Z7h/H3oqjmsBea6nOF3DY2tAhqK2lBwPxamm5KfVuFrK	2022-08-07 23:34:26.777349
-51	jhuzinha	jhuzaaaaa@gil.com	$2b$10$cmuM//Ipp/a.lPg1HKhVV.2gIYh0UWt6bTyhAzCDU5WTZ7nCWS7S6	2022-08-07 23:34:28.466575
-52	jhuzinha	jhuzaaaa@gil.com	$2b$10$mbwNdCZA3RXxmwtk107ysOwVjh.6bxZNWJfYhT2.2FpGVYaNi1LK2	2022-08-07 23:34:30.625192
-53	jhuzinha	jhuza@gil.com	$2b$10$UwCmJc2oabWE41vMsHuXoeRlZrY1YPjGa5DnowWKvkQC0YhMw.OIW	2022-08-07 23:34:34.905298
 \.
 
 
@@ -158,7 +145,7 @@ SELECT pg_catalog.setval('public.links_id_seq', 16, true);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ozkfpsysinuaha
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 53, true);
+SELECT pg_catalog.setval('public.users_id_seq', 54, true);
 
 
 --

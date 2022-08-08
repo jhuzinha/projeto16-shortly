@@ -31,12 +31,13 @@ export async function getUrlById(req, res) {
 export async function openShortUrl(req, res) {
     const { shortUrl } = req.params;
     try {
-        const { rows: url } = await urlRepository.searchShortUrl(shortUrl);
+        const { rows: url} = await urlRepository.searchShortUrl(shortUrl);
         if (url.length === 0){
             return res.sendStatus(404)
-        }
+        } else {
         await urlRepository.updateVisitCount(shortUrl);
-        res.redirect(url[0].url);
+        return res.redirect(200, url[0].url);
+        }
     } catch (err) {
         console.log(err)
         res.sendStatus(500)

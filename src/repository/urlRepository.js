@@ -13,7 +13,7 @@ async function searchIdUrl(id){
 }
 
 async function searchShortUrl(shortUrl) {
-    return await db.query(`SELECT url FROM links WHERE "shortUrl" = $1`, [shortUrl])
+    return db.query(`SELECT url FROM links WHERE "shortUrl" = $1`, [shortUrl])
 }
 
 async function updateVisitCount(shortUrl){
